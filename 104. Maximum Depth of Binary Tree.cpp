@@ -23,12 +23,15 @@
         
     if(node->right != NULL) {
         right += 1;
-        right += node->right;
+        right += Search(node->right);
     }
     
     return Max(left, right);
  }
  
 int maxDepth(struct TreeNode* root) {
-    return Search(root);
+    if(NULL == root)
+        return 0;
+        
+    return Search(root) + 1;
 }
